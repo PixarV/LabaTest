@@ -1,12 +1,13 @@
 package first;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 class SmallMathUtilSetTest {
@@ -19,6 +20,12 @@ class SmallMathUtilSetTest {
     }
 
     @Test
+    @DisplayName("factorial with neg num")
+    void factorialThrowsExceptionWithNegativeNumber() {
+        assertThrows(IllegalArgumentException.class, () -> SmallMathUtilSet.factorial(-1));
+    }
+
+    @Test
     void mul() {
         double temp = SmallMathUtilSet.mul(5, 6);
         assertThat(temp, is(30.0));
@@ -28,5 +35,6 @@ class SmallMathUtilSetTest {
     void div() {
         double temp = SmallMathUtilSet.div(30, 6);
         assertThat(temp, is(5.0));
+        double a = SmallMathUtilSet.div(30,0);
     }
 }
