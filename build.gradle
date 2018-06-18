@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+//    id 'application'
+}
+
+group 'com.hw.epam'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+//mainClassName = "Test"
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:+'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.1'
+    testCompile 'org.junit.jupiter:junit-jupiter-params:+',
+            'org.hamcrest:java-hamcrest:+'
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.1.1'
+}
+
+test {
+  // ????
+}
