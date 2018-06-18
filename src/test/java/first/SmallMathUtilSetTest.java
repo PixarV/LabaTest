@@ -1,5 +1,6 @@
 package first;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class SmallMathUtilSetTest {
 
-    @ParameterizedTest(name = "num={0}, result={1}")
+    @ParameterizedTest
     @CsvFileSource(resources = "/first.csv")
     void factorial(int num, int result) {
         int temp = SmallMathUtilSet.factorial(num);
@@ -36,5 +37,13 @@ class SmallMathUtilSetTest {
         double temp = SmallMathUtilSet.div(30, 6);
         assertThat(temp, is(5.0));
         double a = SmallMathUtilSet.div(30,0);
+    }
+
+    @Test
+    @Disabled
+    @DisplayName("div by 0.0")
+    void divWithZeroes() {
+        assertThat(SmallMathUtilSet.div(5, 0), is(Double.POSITIVE_INFINITY));
+        assertThat(SmallMathUtilSet.div(0, 0), is(Double.NaN));
     }
 }

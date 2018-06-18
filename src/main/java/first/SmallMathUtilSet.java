@@ -16,9 +16,4 @@ class SmallMathUtilSet{
     static double div(double arg1, double arg2) {
         return arg1/arg2;
     }
-
-    public static void main(String... args) {
-        double b = factorial(-6);
-        System.out.println(b);
-    }
 }
