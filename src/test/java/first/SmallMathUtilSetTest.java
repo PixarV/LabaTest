@@ -1,6 +1,9 @@
 package first;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -8,10 +11,11 @@ import static org.hamcrest.core.Is.is;
 
 class SmallMathUtilSetTest {
 
-    @Test
-    void factorial() {
-        int temp = SmallMathUtilSet.factorial(5);
-        assertThat(temp, is(120));
+    @ParameterizedTest(name = "num={0}, result={1}")
+    @CsvFileSource(resources = "/first.csv")
+    void factorial(int num, int result) {
+        int temp = SmallMathUtilSet.factorial(num);
+        assertThat(temp, is(result));
     }
 
     @Test
