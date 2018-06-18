@@ -1,4 +1,4 @@
-package second;
+package tdd.second;
 
 import lombok.experimental.FieldDefaults;
 import org.junit.jupiter.api.DisplayName;

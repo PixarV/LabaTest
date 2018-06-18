@@ -1,4 +1,4 @@
-package first;
+package tdd.first;
 
 import lombok.experimental.UtilityClass;
 
