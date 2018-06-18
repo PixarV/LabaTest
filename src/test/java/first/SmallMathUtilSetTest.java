@@ -36,7 +36,6 @@ class SmallMathUtilSetTest {
     void div() {
         double temp = SmallMathUtilSet.div(30, 6);
         assertThat(temp, is(5.0));
-        double a = SmallMathUtilSet.div(30,0);
     }
 
     @Test
