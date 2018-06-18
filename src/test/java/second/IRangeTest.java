@@ -11,6 +11,7 @@ import static lombok.AccessLevel.PRIVATE;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 class IRangeTest {
@@ -21,6 +22,13 @@ class IRangeTest {
     static long OUT = 7;
 
     static IRange range = new Range(LOWER, UPPER);
+
+
+    @Test
+    @DisplayName("upper < lower")
+    void createWithIllegalArgs() {
+        assertThrows(IllegalArgumentException.class, () -> new Range(UPPER, LOWER));
+    }
 
 
     @Test
@@ -85,6 +93,7 @@ class IRangeTest {
     void asIterator() {
         Iterator<Long> iterator = range.asIterator();
         List<Long> fromRange = range.asList();
-        assertThat(iterator, is(fromRange.iterator()));
+        for (Long l : fromRange)
+            assertThat(iterator.next(), is(l));
     }
 }
